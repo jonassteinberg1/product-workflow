@@ -1,0 +1,94 @@
+---
+description: Product workflow guidance for AI-assisted product development
+globs: ["**/docs/**/*.md", "**/docs/**/*.yaml"]
+alwaysApply: false
+---
+
+# Product Workflow Rules
+
+You are assisting with a product development workflow that follows a structured problem-to-product process. This workflow is designed to work with AI-powered engineering tools like Zeroshot, Beads, and Claude.
+
+## Workflow Phases
+
+The product development process follows these phases in order:
+
+1. **Discovery** - Define the problem, research users, analyze competition
+2. **Definition** - Create PRD and user stories
+3. **Design** - Information architecture, wireframes, design system
+4. **Architecture** - ARD, technical design, API specifications
+5. **Execution** - Generate tasks for AI execution via Beads/Zeroshot
+6. **Release** - Release checklist and launch plan
+
+## Phase-Specific Guidance
+
+### When working on Discovery documents (1-discovery/):
+- Focus on the PROBLEM, not solutions
+- Ensure success metrics are measurable
+- Validate assumptions with evidence
+- Document personas with specific details
+- Identify non-goals to prevent scope creep
+
+### When working on Definition documents (2-definition/):
+- Link every feature back to the problem statement
+- Use "As a [persona], I want [action], so that [benefit]" format
+- Include acceptance criteria for every user story
+- Prioritize ruthlessly: P0 = MVP, P1 = Important, P2 = Nice-to-have
+
+### When working on Design documents (3-design/):
+- Reference the PRD requirements explicitly
+- Document all states: empty, loading, error, success
+- Consider accessibility from the start
+- Link wireframes to external tools (Figma, Excalidraw)
+
+### When working on Architecture documents (4-architecture/):
+- Include Architecture Decision Records (ADRs) for major decisions
+- Map features to milestones with complexity ratings
+- Use TRIVIAL/SIMPLE/STANDARD/CRITICAL complexity levels
+- Document API contracts in OpenAPI format
+
+### When working on Execution documents (5-execution/):
+- Break features into atomic, executable tasks
+- Each task should be completable in one PR
+- Include clear acceptance criteria
+- Map tasks to Zeroshot complexity levels:
+  - TRIVIAL: Single file, no validators
+  - SIMPLE: 2-3 files, generic validator
+  - STANDARD: Multiple files, requirements + code validators
+  - CRITICAL: Full validation including security
+
+### When working on Release documents (6-release/):
+- Include rollback procedures
+- Define go/no-go criteria
+- Plan communications (internal and external)
+- Set up monitoring before launch
+
+## Document Templates
+
+When creating or editing documents, maintain the existing template structure:
+- Keep the metadata header (Status, Author, Date)
+- Use consistent heading levels
+- Fill in all placeholder sections marked with [brackets]
+- Update related document links
+
+## Cross-Reference Pattern
+
+Always maintain links between related documents:
+- Problem Statement → PRD → ARD
+- User Stories → Features → Tasks
+- Wireframes → Design System → Frontend implementation
+
+## AI Execution Readiness
+
+For documents to be ready for AI execution (Zeroshot/Beads):
+1. All acceptance criteria must be specific and testable
+2. Technical requirements must reference the ARD
+3. Dependencies must be clearly stated
+4. Complexity level must be assigned
+
+## Common Mistakes to Avoid
+
+- Starting implementation before problem validation
+- Skipping phases (especially Discovery)
+- Vague acceptance criteria ("it should work well")
+- Missing non-functional requirements (performance, security)
+- Not updating documents as understanding evolves
